@@ -1,0 +1,19 @@
+{
+    "can_view": [
+        "1",
+        "2"
+    ],
+    "can_create": [
+        "1"
+    ],
+    "can_delete": [
+        "1"
+    ],
+    "can_edit": [
+        "1"
+    ],
+    "can_generate_excel": [
+        "1",
+        "2"
+    ]
+}

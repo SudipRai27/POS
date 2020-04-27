@@ -1,0 +1,33 @@
+{
+    "can_view_product": [
+        "1",
+        "2"
+    ],
+    "can_create_product": [],
+    "can_delete_product": [],
+    "can_edit_product": [
+        "1"
+    ],
+    "can_generate_product_excel": [
+        "1",
+        "2"
+    ],
+    "can_view_category": [
+        "1",
+        "2"
+    ],
+    "can_create_category": [],
+    "can_delete_category": [],
+    "can_edit_category": [
+        "1"
+    ],
+    "can_view_subcategory": [
+        "1",
+        "2"
+    ],
+    "can_create_subcategory": [],
+    "can_delete_subcategory": [],
+    "can_edit_subcategory": [
+        "1"
+    ]
+}

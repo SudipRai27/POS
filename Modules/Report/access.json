@@ -1,0 +1,14 @@
+{
+    "can_view_sales_report": [
+        "1",
+        "2"
+    ],
+    "can_view_purchase_report": [
+        "1",
+        "2"
+    ],
+    "can_view_dues_report": [
+        "1",
+        "2"
+    ]
+}

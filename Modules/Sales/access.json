@@ -1,0 +1,22 @@
+{
+    "can_make_sales": [
+        "1",
+        "2"
+    ],
+    "can_view_sales": [
+        "1",
+        "2"
+    ],
+    "can_view_invoice": [
+        "1",
+        "2"
+    ],
+    "can_print_invoice": [
+        "1",
+        "2"
+    ],
+    "can_delete_invoice": [],
+    "can_generate_excel": [
+        "2"
+    ]
+}

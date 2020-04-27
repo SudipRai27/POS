@@ -1,0 +1,31 @@
+{
+    "can_make_purchase": [
+        "1",
+        "2"
+    ],
+    "can_create_payment": [
+        "1"
+    ],
+    "can_view_payment": [
+        "1",
+        "2"
+    ],
+    "can_view_payment_invoice": [
+        "1",
+        "2"
+    ],
+    "can_print_invoice": [
+        "1",
+        "2"
+    ],
+    "can_clear_dues": [
+        "1"
+    ],
+    "can_delete_invoice": [
+        "1"
+    ],
+    "can_generate_excel": [
+        "1",
+        "2"
+    ]
+}

@@ -185,9 +185,13 @@ $todays_purchase = $helpercontroller->getTodaysPurchase()
           <div class="box-body">
               
               <?php   
-              $product = DB::table('products')->where('product_code', $best_seller[0])
+              if(count($best_seller))
+              {
+                $product = DB::table('products')->where('product_code', $best_seller[0])
                                                    ->first();
+              }
               ?>
+              @if(count($best_seller))
              <b> Product Name : {{$product->product_name}}</b><br><br>
              <p align="center">
              @if($product->image)
@@ -195,6 +199,9 @@ $todays_purchase = $helpercontroller->getTodaysPurchase()
              <br><br>
              @endif
               <a href = "{{route('product-view', $product->id)}}" data-lity><button data-toggle="tooltip" title="" class="btn btn-primary btn-flat" type="button" data-original-title="View"> View  <i class="fa fa-fw fa-file"></i></button></a></p>
+              @else
+              No Product available right now
+              @endif
           </div>
          
         </div>

@@ -39,7 +39,7 @@ class SalesController extends Controller
                 
                 $sales = new Sales;
                 $sales->product_code = $product_codeArr[$i];
-                $sales->product_name = Products::where('product_code', $product_codeArr[$i])->pluck('product_name')[0];
+                //$sales->product_name = Products::where('product_code', $product_codeArr[$i])->pluck('product_name')[0];
                 $sales->quantity = $quantityArr[$i];
                 $sales->price = $priceArr[$i];
                 $sales->total_price = $total_priceArr[$i];
@@ -98,7 +98,7 @@ class SalesController extends Controller
 
     public function getViewSalesInvoice($invoice_number)
     {
-        $invoice_details = SalesInvoice::findorFail($invoice_number); 
+        $invoice_details = SalesInvoice::where('invoice_number', $invoice_number)->first(); 
         
         $sales_details = Sales::where('invoice_number', $invoice_details->invoice_number)->get();
         return view('sales::view-sales-invoice')->with('invoice_details', $invoice_details)

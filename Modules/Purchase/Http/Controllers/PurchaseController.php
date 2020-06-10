@@ -39,7 +39,7 @@ class PurchaseController extends Controller
                 
                 $purchase = new Purchase;
                 $purchase->product_code = $product_codeArr[$i];
-                $purchase->product_name = Products::where('product_code', $product_codeArr[$i])->pluck('product_name')[0];
+                //$purchase->product_name = Products::where('product_code', $product_codeArr[$i])->pluck('product_name')[0];
                 $purchase->quantity = $quantityArr[$i];
                 $purchase->price = $priceArr[$i];
                 $purchase->total_price = $total_priceArr[$i];

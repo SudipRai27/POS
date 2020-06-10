@@ -38,7 +38,7 @@
 							    <tbody>
 							    @foreach($invoice as $index => $d)
 								<tr>
-									<td><a href="{{route('view-sales-invoice', $d->invoice_number)}}" data-lity>{{$d->invoice_number}}</a></td>					
+									<td><a href="{{route('view-sales-invoice', $d->invoice_number)}}" data-lity class="btn btn-success" type="button">{{$d->invoice_number}}</a></td>					
 									<td>{{ date('M j Y ', strtotime($d->invoice_generated_date)) }}</td>
 									<td>{{$d->grand_total}}</td>
 									<td>

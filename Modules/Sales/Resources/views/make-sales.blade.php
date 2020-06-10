@@ -454,8 +454,9 @@ $(document).ready(function(){
 				$('#grand_total_with_vat').val('');
 				$('#amount').val('');
 				$('#return_amount').val('');
-				$('#date').val('');
-				window.location = "{{route('print-sales')}}" 
+				$('#date').val('');				
+				location.reload();			
+				window.open('{{route('print-sales')}}');
 
 				}
 			

@@ -30,7 +30,7 @@ class PaymentController extends Controller
 
     public function getViewPaymentFromInvoice($invoice_number)
     {
-		$invoice_details = Invoice::findorFail($invoice_number);
+		$invoice_details = Invoice::where('invoice_number', $invoice_number)->first(); 
 		$purchase_details = Purchase::where('invoice_number', $invoice_number)->get();
                                  
 		return view('purchase::payment.invoice-view')->with('invoice_details', $invoice_details)
@@ -39,8 +39,11 @@ class PaymentController extends Controller
 
     public function getCreatePayment($invoice_number)
     {
-        $invoice = Invoice::findorFail($invoice_number); 
+
+        $invoice = Invoice::where('invoice_number', $invoice_number)->first(); 
         $purchase_details = Purchase::where('invoice_number', $invoice_number)->get();
+        
+        
         return view('purchase::payment.create-payment-view')->with('invoice', $invoice)
                                                             ->with('purchase_details', $purchase_details);
     }
@@ -62,7 +65,7 @@ class PaymentController extends Controller
             
         }
 
-        $invoice = Invoice::find($invoice_number);
+        $invoice = Invoice::where('invoice_number', $invoice_number)->first();
         $invoice->paid_amount = $request->amount;
         $invoice->payment_date = date('Y-m-d');
         $invoice->dues = $dues;
@@ -82,7 +85,7 @@ class PaymentController extends Controller
 
     public function getInvoicePrintforPayment($invoice_number)
     {
-        $invoice_details = Invoice::findorFail($invoice_number); 
+        $invoice_details = Invoice::where('invoice_number', $invoice_number)->first();  
         $purchase_details = Purchase::where('invoice_number', $invoice_number)->get();
         return view('purchase::payment.print-payment')->with('invoice_details', $invoice_details)
                                                       ->with('purchase_details', $purchase_details);
@@ -90,7 +93,7 @@ class PaymentController extends Controller
 
     public function getPaymentClearDues($invoice_number)
     {
-        $invoice = Invoice::findorFail($invoice_number); 
+        $invoice = Invoice::where('invoice_number', $invoice_number)->first();  
         $purchase_details = Purchase::where('invoice_number', $invoice_number)->get();
         return view('purchase::payment.clear-dues')->with('invoice', $invoice)
                                                    ->with('purchase_details', $purchase_details);
@@ -98,7 +101,7 @@ class PaymentController extends Controller
 
     public function postPaymentClearDues(Request $request, $invoice_number)
     {
-        $invoice = Invoice::findorFail($invoice_number);
+        $invoice = Invoice::where('invoice_number', $invoice_number)->first(); 
         $invoice->dues = 0;
         $invoice->is_paid = 'paid';
         $invoice->due_payment_date = date('Y-m-d');
@@ -110,7 +113,7 @@ class PaymentController extends Controller
     public function getDeletePurchasePaymentInvoice($invoice_number)
     {
         $purchase_details = Purchase::where('invoice_number', $invoice_number)->delete();
-        $invoice = Invoice::findorFail($invoice_number);
+        $invoice = Invoice::where('invoice_number', $invoice_number)->first(); 
         $invoice->delete();
         Session::flash('success-msg', 'Invoice Deleted Successfully');
         return redirect()->back();

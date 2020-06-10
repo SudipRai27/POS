@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2018 at 11:19 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: Jun 10, 2020 at 04:30 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -146,30 +146,6 @@ CREATE TABLE `per_purchase` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `per_purchase`
---
-
-INSERT INTO `per_purchase` (`id`, `product_code`, `quantity`, `price`, `total_price`, `invoice_number`, `created_at`, `updated_at`) VALUES
-(1, 'BJ100', 12, '1500.00', '18000.00', 1, '2018-06-01 06:07:38', '2018-06-01 06:07:38'),
-(2, 'BRJ200', 5, '1150.00', '5750.00', 1, '2018-06-01 06:07:38', '2018-06-01 06:07:38'),
-(3, 'LG GL-B292', 4, '22500.00', '90000.00', 1, '2018-06-01 06:07:38', '2018-06-01 06:07:38'),
-(4, 'MIG10', 5, '30000.00', '150000.00', 1, '2018-06-01 06:07:38', '2018-06-01 06:07:38'),
-(6, 'RMJ100', 20, '925.00', '18500.00', 3, '2018-06-04 06:47:32', '2018-06-04 06:47:32'),
-(7, 'TSHIRTMENS', 60, '750.00', '45000.00', 3, '2018-06-04 06:47:32', '2018-06-04 06:47:32'),
-(8, 'TSHIRTMENS', 20, '1200.00', '24000.00', 4, '2018-06-04 08:35:30', '2018-06-04 08:35:30'),
-(9, 'RMJ100', 12, '1000.00', '12000.00', 4, '2018-06-04 08:35:30', '2018-06-04 08:35:30'),
-(10, 'MIG10', 5, '20000.00', '100000.00', 4, '2018-06-04 08:35:30', '2018-06-04 08:35:30'),
-(11, 'BJ100', 12, '1500.00', '18000.00', 5, '2018-06-06 07:30:32', '2018-06-06 07:30:32'),
-(12, 'BRJ200', 10, '1500.00', '15000.00', 5, '2018-06-06 07:30:32', '2018-06-06 07:30:32'),
-(13, 'RMJ100', 10, '850.00', '8500.00', 5, '2018-06-06 07:30:32', '2018-06-06 07:30:32'),
-(14, 'TSHIRTMENS', 10, '925.00', '9250.00', 5, '2018-06-06 07:30:32', '2018-06-06 07:30:32'),
-(15, 'RCD202', 20, '50000.00', '1000000.00', 6, '2018-06-08 08:05:55', '2018-06-08 08:05:55'),
-(16, 'LG GL-B292', 10, '20000.00', '200000.00', 7, '2018-06-08 08:25:05', '2018-06-08 08:25:05'),
-(17, 'RCD202', 12, '20000.00', '240000.00', 7, '2018-06-08 08:25:05', '2018-06-08 08:25:05'),
-(18, 'BJ100', 12, '100.00', '1200.00', 8, '2018-06-12 10:24:16', '2018-06-12 10:24:16'),
-(19, 'MIG10', 2, '100.00', '200.00', 8, '2018-06-12 10:24:17', '2018-06-12 10:24:17');
-
 -- --------------------------------------------------------
 
 --
@@ -191,19 +167,6 @@ CREATE TABLE `per_purchase_invoice` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `per_purchase_invoice`
---
-
-INSERT INTO `per_purchase_invoice` (`id`, `grand_total`, `invoice_number`, `supplier_id`, `invoice_generated_date`, `paid_amount`, `dues`, `is_paid`, `payment_date`, `due_payment_date`, `notes`, `created_at`, `updated_at`) VALUES
-(1, '263750.00', 1, 3, '2018-06-01 11:51:03', '263750.00', '0.00', 'paid', '2018-06-01', NULL, NULL, '2018-06-01 06:07:38', '2018-06-01 08:22:57'),
-(3, '63500.00', 3, 3, '2018-06-04 12:32:02', '62000.00', '0.00', 'paid', '2018-06-04', '2018-06-06', NULL, '2018-06-04 06:47:33', '2018-06-06 07:32:14'),
-(4, '136000.00', 4, 4, '2018-06-03 14:19:25', '130000.00', '0.00', 'paid', '2018-06-06', '2018-06-06', NULL, '2018-06-04 08:35:30', '2018-06-06 11:12:48'),
-(5, '50750.00', 5, 4, '2018-06-06 13:14:18', NULL, '50750.00', 'unpaid', NULL, NULL, NULL, '2018-06-06 07:30:32', '2018-06-06 07:30:32'),
-(6, '1000000.00', 6, 3, '2018-06-08 13:50:38', NULL, '1000000.00', 'unpaid', NULL, NULL, NULL, '2018-06-08 08:05:55', '2018-06-08 08:05:55'),
-(7, '440000.00', 7, 4, '2018-06-08 14:09:16', NULL, '440000.00', 'unpaid', NULL, NULL, 'Payment to be done afterwards', '2018-06-08 08:25:05', '2018-06-08 08:25:05'),
-(8, '1400.00', 8, 3, '2018-06-12 16:08:58', NULL, '1400.00', 'unpaid', NULL, NULL, 'NTH', '2018-06-12 10:24:17', '2018-06-12 10:24:17');
 
 -- --------------------------------------------------------
 
@@ -243,28 +206,6 @@ CREATE TABLE `per_sales` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `per_sales`
---
-
-INSERT INTO `per_sales` (`id`, `product_code`, `quantity`, `price`, `total_price`, `invoice_number`, `created_at`, `updated_at`) VALUES
-(1, 'BJ100', 5, '1212.00', '6060.00', 1, '2018-06-06 08:30:52', '2018-06-06 08:30:52'),
-(2, 'BRJ200', 5, '1209.00', '6045.00', 1, '2018-06-06 08:30:52', '2018-06-06 08:30:52'),
-(3, 'LG GL-B292', 5, '25000.00', '125000.00', 1, '2018-06-06 08:30:52', '2018-06-06 08:30:52'),
-(4, 'MIG10', 5, '100000.00', '500000.00', 1, '2018-06-06 08:30:52', '2018-06-06 08:30:52'),
-(5, 'RMJ100', 10, '800.00', '8000.00', 1, '2018-06-06 08:30:52', '2018-06-06 08:30:52'),
-(6, 'TSHIRTMENS', 20, '1250.00', '25000.00', 1, '2018-06-06 08:30:52', '2018-06-06 08:30:52'),
-(7, 'BJ100', 5, '1212.00', '6060.00', 2, '2018-06-08 08:03:12', '2018-06-08 08:03:12'),
-(8, 'TSHIRTMENS', 20, '1250.00', '25000.00', 2, '2018-06-08 08:03:12', '2018-06-08 08:03:12'),
-(9, 'BRJ200', 5, '1209.00', '6045.00', 3, '2018-06-08 08:26:09', '2018-06-08 08:26:09'),
-(10, 'RCD202', 30, '80000.00', '2400000.00', 3, '2018-06-08 08:26:09', '2018-06-08 08:26:09'),
-(11, 'MIG10', 10, '100000.00', '1000000.00', 4, '2018-06-08 08:45:38', '2018-06-08 08:45:38'),
-(12, 'BJ100', 9, '1212.00', '10908.00', 5, '2018-06-12 10:36:00', '2018-06-12 10:36:00'),
-(13, 'TSHIRTMENS', 20, '1250.00', '25000.00', 5, '2018-06-12 10:36:00', '2018-06-12 10:36:00'),
-(14, 'RMJ100', 10, '800.00', '8000.00', 6, '2018-06-14 06:22:40', '2018-06-14 06:22:40'),
-(15, 'LG GL-B292', 10, '25000.00', '250000.00', 6, '2018-06-14 06:22:40', '2018-06-14 06:22:40'),
-(16, 'BJ100', 4, '1212.00', '4848.00', 7, '2018-06-14 06:52:50', '2018-06-14 06:52:50');
-
 -- --------------------------------------------------------
 
 --
@@ -284,19 +225,6 @@ CREATE TABLE `per_sales_invoice` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `per_sales_invoice`
---
-
-INSERT INTO `per_sales_invoice` (`id`, `grand_total`, `grand_total_with_vat`, `invoice_number`, `invoice_generated_date`, `paid_amount`, `return_amount`, `vat_percent`, `notes`, `created_at`, `updated_at`) VALUES
-(1, '670105.00', '757218.65', 1, '2018-06-06 14:14:29', '760000.00', '2782.00', '13.00', NULL, '2018-06-06 08:30:53', '2018-06-06 08:30:53'),
-(2, '31060.00', '35097.00', 2, '2018-06-08 13:47:38', '36000.00', '903.00', '13.00', NULL, '2018-06-08 08:03:12', '2018-06-08 08:03:12'),
-(3, '2406045.00', '2718830.00', 3, '2018-06-08 14:10:21', '2800000.00', '81170.00', '13.00', 'Amount is fully paid', '2018-06-08 08:26:09', '2018-06-08 08:26:09'),
-(4, '1000000.00', '1130000.00', 4, '2018-06-08 14:30:23', '1200000.00', '70000.00', '13.00', NULL, '2018-06-08 08:45:38', '2018-06-08 08:45:38'),
-(5, '35908.00', '40576.00', 5, '2018-06-12 16:20:42', '41000.00', '424.00', '13.00', NULL, '2018-06-12 10:36:00', '2018-06-12 10:36:00'),
-(6, '258000.00', '291540.00', 6, '2018-06-14 12:07:11', '300000.00', '8460.00', '13.00', NULL, '2018-06-14 06:22:40', '2018-06-14 06:22:40'),
-(7, '4848.00', '5478.00', 7, '2018-06-14 12:37:39', '6000.00', '522.00', '13.00', NULL, '2018-06-14 06:52:50', '2018-06-14 06:52:50');
 
 -- --------------------------------------------------------
 
@@ -340,12 +268,12 @@ CREATE TABLE `per_stock` (
 --
 
 INSERT INTO `per_stock` (`id`, `product_code`, `quantity`, `created_at`, `updated_at`) VALUES
-(1, 'BJ100', 1, '2018-06-01 06:07:38', '2018-06-14 06:52:50'),
-(2, 'BRJ200', 0, '2018-06-01 06:07:38', '2018-06-08 08:26:09'),
+(1, 'BJ100', 9, '2018-06-01 06:07:38', '2020-06-10 02:23:17'),
+(2, 'BRJ200', 2, '2018-06-01 06:07:38', '2020-06-10 02:26:27'),
 (3, 'LG GL-B292', 3, '2018-06-01 06:07:38', '2018-06-14 06:22:40'),
-(4, 'MIG10', 9, '2018-06-01 06:07:38', '2018-06-12 10:24:17'),
-(5, 'RMJ100', 12, '2018-06-04 06:47:32', '2018-06-14 06:22:40'),
-(6, 'TSHIRTMENS', 10, '2018-06-04 06:47:32', '2018-06-12 10:36:00'),
+(4, 'MIG10', 28, '2018-06-01 06:07:38', '2020-06-10 02:00:26'),
+(5, 'RMJ100', 0, '2018-06-04 06:47:32', '2020-06-10 02:10:31'),
+(6, 'TSHIRTMENS', 36, '2018-06-04 06:47:32', '2020-06-10 02:28:15'),
 (7, 'RCD202', 2, '2018-06-08 08:05:55', '2018-06-08 08:26:09');
 
 -- --------------------------------------------------------
@@ -374,7 +302,7 @@ CREATE TABLE `per_superadmin` (
 --
 
 INSERT INTO `per_superadmin` (`id`, `name`, `email`, `password`, `temporary_address`, `permanent_address`, `contact`, `photo`, `remember_token`, `api_token`, `created_at`, `updated_at`) VALUES
-(1, 'Catchy Road', 'admin@admin.com', '$2y$10$ts2AA2nJGZI4XfvTgsNLzOlNIWQpuPX3W8LNC7tXHUoE6WxzRX6Za', 'Kalimati', 'kalimati', '4488542', 'images.png', 'rTHpzggzIDFuKI7Rn2ybQYybBAFNhi9Eydq1Ef47o4jJ5cM0wbdFhFqWrbeD', 'mJUhf2YAVekfhZrbweQJXv4WKfpDR5VwPZwE4AyJ6l3NjKVH2NWZgCT7ulsp', '2018-05-06 09:35:36', '2018-06-13 10:46:49');
+(1, 'Catchy Road', 'admin@admin.com', '$2y$10$ts2AA2nJGZI4XfvTgsNLzOlNIWQpuPX3W8LNC7tXHUoE6WxzRX6Za', 'Kalimati', 'kalimati', '4488542', 'images.png', 'Acr9pfeYS10iGoubdYpRWPFSHeaLyy4qcK8ky1JhYd1VZlr6GI3vVyEHYzaN', 'mJUhf2YAVekfhZrbweQJXv4WKfpDR5VwPZwE4AyJ6l3NjKVH2NWZgCT7ulsp', '2018-05-06 09:35:36', '2018-06-13 10:46:49');
 
 -- --------------------------------------------------------
 
@@ -423,14 +351,6 @@ CREATE TABLE `per_users` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `per_users`
---
-
-INSERT INTO `per_users` (`id`, `name`, `email`, `password`, `address`, `contact`, `photo`, `remember_token`, `api_token`, `created_at`, `updated_at`) VALUES
-(2, 'Sushan Paudyal', 'sushan@gmail.com', '$2y$10$tS6PQvaQlEID2b6gjCKn3.vgfIRdycO10en2OeXHwZwBNc7SGheQK', 'ktm', '981232121', '', 'Ls2mC5zrkt2BH7QsHhlbK6WZdmiitkbL68g15wiuP7qHF9MSaf72vytnQAQ2', 'oj4osmanE3MjuvW2YA9L7SSwCMK6yQW7WZZwDt6NKJnj9OHmWvKYtOaNf2WR', '2018-05-20 07:59:56', '2018-06-13 08:51:23'),
-(9, 'Rohit Manadhar', 'rohit@gmail.com', '$2y$10$pGfCx4.XivsPRk.lAAm9jeMnC4JfdKBn2GZl4C3JHYK89tjcI1rk6', 'kalanki', '9812312', '5b20d9278085dimages.jpg', 'WMzn4bJKrrcgOE89KqGakJHPD4im59VpWJoD8PdhHKHdmYMZtISGaqk1HW7g', 'FexqJAv93bwBBnohYTbwHOOuhycxNa8K48hNzmAT7qg17YWlrbzTv8ga6yyP', '2018-06-13 08:43:19', '2018-06-13 10:47:05');
-
 -- --------------------------------------------------------
 
 --
@@ -444,14 +364,6 @@ CREATE TABLE `per_user_roles` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `per_user_roles`
---
-
-INSERT INTO `per_user_roles` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(2, 2, 1, '2018-06-11 00:00:00', '2018-06-13 08:55:16'),
-(4, 9, 2, '2018-06-13 08:43:19', '2018-06-13 08:53:48');
 
 --
 -- Indexes for dumped tables
@@ -583,12 +495,12 @@ ALTER TABLE `per_product_subcategory`
 -- AUTO_INCREMENT for table `per_purchase`
 --
 ALTER TABLE `per_purchase`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `per_purchase_invoice`
 --
 ALTER TABLE `per_purchase_invoice`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `per_roles`
 --
@@ -598,12 +510,12 @@ ALTER TABLE `per_roles`
 -- AUTO_INCREMENT for table `per_sales`
 --
 ALTER TABLE `per_sales`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `per_sales_invoice`
 --
 ALTER TABLE `per_sales_invoice`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `per_settings`
 --

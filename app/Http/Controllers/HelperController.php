@@ -128,11 +128,15 @@ class HelperController extends Controller
             $temp[DB::table('sales')->where('product_code', $d->product_code)->pluck('product_code')[0]] = DB::table('sales')->where('product_code', $d->product_code)->sum('quantity');
         }
         
-
-        $bestSellingProduct = array_keys($temp, max($temp));
-
-        return $bestSellingProduct;
-
+        if(count($temp))
+        {
+             
+            return array_keys($temp, max($temp));
+        }
+        else
+        {
+            return $bestSellingProduct = [];
+        }
      
     }
 

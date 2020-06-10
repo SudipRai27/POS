@@ -1,6 +1,6 @@
 # POS
 Made in Laravel 5.5.<br>
-To get started .. clone the repo and import the sql file which is present as catchy_pos.sql. Once you have imported database locally, you also need to install the dependencies by running composer update. Once these two are done you are ready to login. 
+To get started .. clone the repo and import the sql file which is present as catchy_pos.sql. Once you have imported database locally, you also need to install the dependencies by running composer update. Once these two are done you need to configure env file by copying from .env.example file and generate application key. Once all of these are completed you are ready to login. 
 
 <br><br>
 Admin Login : <br>
